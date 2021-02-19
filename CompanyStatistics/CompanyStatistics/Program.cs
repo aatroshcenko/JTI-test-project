@@ -1,4 +1,6 @@
+using CompanyStatistics.Extensions;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace CompanyStatistics
@@ -7,7 +9,22 @@ namespace CompanyStatistics
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var webHost = CreateHostBuilder(args)
+                .Build()
+                .MigrateDatabase();
+
+            using (var scope = webHost.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var hostingEnvironment = services.GetService<IWebHostEnvironment>();
+
+                if (hostingEnvironment.IsDevelopment())
+                {
+                    webHost.SetupDevelopmentDatabase();
+                }
+            }
+
+            webHost.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
