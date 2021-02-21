@@ -1,4 +1,10 @@
+using AutoMapper;
+using CompanyStatistics.Commands;
+using CompanyStatistics.Commands.Interfaces;
 using CompanyStatistics.Data;
+using CompanyStatistics.Mappings;
+using CompanyStatistics.Repositories;
+using CompanyStatistics.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +28,18 @@ namespace CompanyStatistics
         {
             services.AddDbContext<CompanyDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Configure repositories
+            services.AddScoped<ISectionRepository, SectionRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            //Configure commands
+            services.AddScoped<IGetSectionsCommand, GetSectionsCommand>();
+            services.AddScoped<IGetSectionsVisitStatisticCommand, GetSectionsVisitStatisticCommand>();
+            services.AddScoped<IGetUsersVisitStatisticCommand, GetUsersVisitStatisticCommand>();
+
+            //Configure automapper
+            services.AddAutoMapper(typeof(ProjectModelsProfile));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
