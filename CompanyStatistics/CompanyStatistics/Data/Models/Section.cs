@@ -8,6 +8,6 @@ namespace CompanyStatistics.Data.Models
 
         public string Name { get; set; }
 
-        public ICollection<Visit> Visits { get; set; }
+        public ICollection<Visit> Visits { get;set; }
     }
 }
