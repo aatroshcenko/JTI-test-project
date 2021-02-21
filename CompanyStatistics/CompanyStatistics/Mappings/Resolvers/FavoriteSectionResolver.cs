@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using CompanyStatistics.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CompanyStatistics.Mappings.Resolvers
 {

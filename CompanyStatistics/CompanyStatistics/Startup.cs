@@ -1,4 +1,3 @@
-using AutoMapper;
 using CompanyStatistics.Commands;
 using CompanyStatistics.Commands.Interfaces;
 using CompanyStatistics.Data;
