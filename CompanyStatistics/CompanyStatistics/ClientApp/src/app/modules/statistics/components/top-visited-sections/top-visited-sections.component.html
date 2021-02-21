@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <h3>Top-{{limit}} visited sections</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="column">№</th>
+                <th class="column">Name</th>
+                <th class="column">TotalVisitsCount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sectionStatistics of sectionsStatistics; index as i;">
+                <td class="cell">{{i+1}}</td>
+                <td class="cell">{{sectionStatistics.section.name}}</td>
+                <td class="cell">{{sectionStatistics.totalVisitsCount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

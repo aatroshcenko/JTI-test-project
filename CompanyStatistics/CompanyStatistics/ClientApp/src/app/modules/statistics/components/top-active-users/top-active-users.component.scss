@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.table, .column{
+    border: 1px solid black;
+}
+
+.cell{
+    text-align: center; 
+    vertical-align: middle;
+    border: 1px solid black;
+
+}

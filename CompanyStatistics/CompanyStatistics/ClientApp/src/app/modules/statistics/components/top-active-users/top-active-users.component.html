@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <h3>Top-{{limit}} active users</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="column">№</th>
+                <th class="column">FullName</th>
+                <th class="column">FavoriteSection</th>
+                <th class="column">TotalVisitsCount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let userStatistics of usersStatistics; index as i;">
+                <td class="cell">{{i+1}}</td>
+                <td class="cell">{{userStatistics.user.firstName}} {{userStatistics.user.lastName}}</td>
+                <td class="cell">{{userStatistics.favoriteSection.name}}</td>
+                <td class="cell">{{userStatistics.totalVisitsCount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

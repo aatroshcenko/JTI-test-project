@@ -1,1 +1,14 @@
-<h1>{{title}}</h1>
+<tui-root>
+    <div class="wrapper">
+        <div class="navigation">
+            <h1>Company</h1>
+            <tui-tabs
+                class="tabs"
+                [activeItemIndex]="activeItemIndex">     
+                <a tuiTab routerLink='/home' routerLinkActive>Home</a>  
+                <a tuiTab routerLink='/statistics' routerLinkActive>Statistics</a>                     
+            </tui-tabs>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</tui-root>
